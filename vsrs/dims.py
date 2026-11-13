@@ -41,6 +41,15 @@ class VsScaleDimsCalculator:
 
     def cr_w(self):
         return 4 * self.cr_p() + 3 * self.rd_w()
+            
+    def rds_h(self):
+        return self._scale(14)
+
+    def rds_w(self):
+        return self._scale(7)
+
+    def vcrre_w(self):
+        return self.cr_w() + self.cr_p() + self.rds_w()
 
 
 class VsSkinOffsetCalculator(VsScaleDimsCalculator):
@@ -76,3 +85,24 @@ class VsSkinOffsetCalculator(VsScaleDimsCalculator):
 
     def cr_y(self):
         return self.uit_y()
+
+    def vcrre_x(self):
+        return self.cr_x() + self.cr_w() + 3
+
+    def vcrrt_x(self):
+        return self.vcrre_x() + 3 * self.rd_w() + 3 * self.cr_p()
+
+    def vcrrt_y(self):
+        return self.cr_y() + self.cr_p() + self.rd_h() - self.rds_h()
+
+    def cn_y(self):
+        return self.skin_h() + 1
+
+    def rds_y(self):
+        return self.cn_y() + self.square_size + 1
+
+    def vsmle_y(self):
+        return self.rds_y() + self.rds_h() + 1
+
+    def vsext_h(self):
+        return self.vsmle_y() + self.sml_d()

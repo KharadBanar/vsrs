@@ -106,6 +106,7 @@ For example, to get the bar between top bar and board, one would extract the rec
 - `sq2` - second row of squares in skin file
 - `ui*` - see above
 - `vcrre` - vsweep's right counter with tenths (extended skin only)
+- `vcrrt` - the tenths digit of the right counter (extended skin only)
 - `vcn` - vsweep's closed numbers (extended skin only)
 - `vsmle` - vsweep's smilie (extended skin only)
 - `vskin` - the entire extended skin, including vsweep-specific features
