@@ -31,7 +31,7 @@ def parse_args():
 
 
 def handle_im(args, im):
-    outim = rescale(im, args.output_size, args.background, args.vsweep_extended)
+    outim = rescale(args, im)
     if args.output:
         outim.save(args.output)
     if args.show:

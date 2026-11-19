@@ -3,14 +3,15 @@ from .dims import VsSkinOffsetCalculator
 from .paster import Paster
 
 
-def rescale(inim, outpx, bgc, ext = False):
+def rescale(args, inim):
     inpx = inim.width // 9
+    outpx = args.output_size
     incalc = VsSkinOffsetCalculator(inpx)
     outcalc = VsSkinOffsetCalculator(outpx)
     outim = Image.new(
         "RGB",
-        (outpx * 9, (outcalc.vskin_h() if ext else outcalc.skin_h())),
-        bgc,
+        (outpx * 9, (outcalc.vskin_h() if args.vsweep_extended else outcalc.skin_h())),
+        args.background,
     )
     paster = Paster(inim, outim)
 
@@ -123,7 +124,7 @@ def rescale(inim, outpx, bgc, ext = False):
     outdims = (1, 1)
     paster.paste(inbox, outcoords, outdims)
 
-    if not ext:
+    if not args.vsweep_extended:
         return outim
 
     #timer with tenths
