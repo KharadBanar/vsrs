@@ -8,9 +8,13 @@ def rescale(args, inim):
     outpx = args.output_size
     incalc = VsSkinOffsetCalculator(inpx)
     outcalc = VsSkinOffsetCalculator(outpx)
+    ext = args.format == "vse"
+    if args.format == "auto" and inim.height == incalc.vskin_h():
+        # We opened a vsweep-extended skin
+        ext = True
     outim = Image.new(
         "RGB",
-        (outpx * 9, (outcalc.vskin_h() if args.vsweep_extended else outcalc.skin_h())),
+        (outpx * 9, (outcalc.vskin_h() if ext else outcalc.skin_h())),
         args.background,
     )
     paster = Paster(inim, outim)
@@ -124,7 +128,7 @@ def rescale(args, inim):
     outdims = (1, 1)
     paster.paste(inbox, outcoords, outdims)
 
-    if not args.vsweep_extended:
+    if not ext:
         return outim
 
     # timer with tenths
