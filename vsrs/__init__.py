@@ -22,6 +22,13 @@ def parse_args():
         help="generate an extended skin for vsweep (additional vsweep-specific graphics include extended timer, small timer digits, closed numbers, wasted flag and colored smileys)",
     )
     parser.add_argument(
+        "-f",
+        "--format",
+        default="auto",
+        choices=["msx", "vse", "auto"],
+        help="whether to generate a base (msx-compatible) skin or a vsweep-extended (vse) skin. Defaults to automatic detection via input file height",
+    )
+    parser.add_argument(
         "input",
         help="input file to be scaled or html color code formatted like #rrggbb. If a color code is passed, generate a template for that output size using this as a foreground color",
     )
