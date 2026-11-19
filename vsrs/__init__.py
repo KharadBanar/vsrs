@@ -16,8 +16,10 @@ def parse_args():
         "-b", "--background", default="#00ff00", help="background color for skin"
     )
     parser.add_argument(
-        "-x", "--vsweep_extended", action="store_true",
-        help="generate an extended skin for vsweep (additional vsweep-specific graphics include extended timer, small timer digits, closed numbers, wasted flag and colored smileys)"
+        "-x",
+        "--vsweep_extended",
+        action="store_true",
+        help="generate an extended skin for vsweep (additional vsweep-specific graphics include extended timer, small timer digits, closed numbers, wasted flag and colored smileys)",
     )
     parser.add_argument(
         "input",

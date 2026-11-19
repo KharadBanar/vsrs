@@ -41,7 +41,7 @@ class VsScaleDimsCalculator:
 
     def cr_w(self):
         return 4 * self.cr_p() + 3 * self.rd_w()
-            
+
     def rds_h(self):
         return self._scale(14)
 

@@ -127,7 +127,7 @@ def rescale(args, inim):
     if not args.vsweep_extended:
         return outim
 
-    #timer with tenths
+    # timer with tenths
     xx = incalc.timer_ext_x()
     yy = incalc.timer_y()
     inbox = (xx, yy, xx + incalc.timer_ext_w(), yy + incalc.timer_h())
@@ -147,7 +147,7 @@ def rescale(args, inim):
         ingap=incalc.timer_pad(),
         outgap=outcalc.timer_pad(),
     )
-    #small tenth digit of extended timer
+    # small tenth digit of extended timer
     xx = incalc.timer_ext_tenth_x()
     yy = incalc.timer_ext_tenth_y()
     inbox = (xx, yy, xx + incalc.rednum_small_w(), yy + incalc.rednum_small_h())
@@ -155,15 +155,20 @@ def rescale(args, inim):
     outdims = (outcalc.rednum_small_w(), outcalc.rednum_small_h())
     paster.paste(inbox, outcoords, outdims)
 
-    #closed numbers, wasted flag
+    # closed numbers, wasted flag
     paster.row(
         9,
-        incalc.closed_num_y(), inpx, inpx,
-        outcalc.closed_num_y(), outpx, outpx,
-        ingap = 0, outgap = 0
+        incalc.closed_num_y(),
+        inpx,
+        inpx,
+        outcalc.closed_num_y(),
+        outpx,
+        outpx,
+        ingap=0,
+        outgap=0,
     )
 
-    #small timer numbers (tenths)
+    # small timer numbers (tenths)
     paster.row(
         10,
         incalc.rednum_small_y(),
@@ -174,7 +179,7 @@ def rescale(args, inim):
         outcalc.rednum_small_h(),
     )
 
-    #green and red smileys
+    # green and red smileys
     paster.row(
         5,
         incalc.smiley_ext_y(),
