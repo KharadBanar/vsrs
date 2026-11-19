@@ -18,12 +18,6 @@ class VsScaleDimsCalculator:
     def smiley_size(self):
         return self._scale(26)
 
-    def top_border_h(self):
-        return 56
-
-    def left_border_w(self):
-        return 12
-
     def msx_l_w(self):
         return self._scale(12)
 
@@ -38,9 +32,6 @@ class VsScaleDimsCalculator:
 
     def msx_b_h(self):
         return self._scale(12)
-
-    def top_border_without_bottom_border_h(self):
-        return self.top_border_h() - self._scale(11)
 
     def timer_pad(self):
         return self._scale(2)
